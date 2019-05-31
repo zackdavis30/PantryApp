@@ -1,0 +1,47 @@
+
+<div class="container">
+<h1> Searched </h1>
+
+
+<div class="nav-section">
+<%= link_to 'Back', pantries_path, class: 'btn btn-mini' %>
+<%= link_to 'New Pantry', new_pantry_path, class: 'btn btn-mini' %>
+</div>
+<br>
+<br>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Item name</th>
+          <th>Category</th>
+          <th>Qty</th>
+          <th>Date of purchase</th>
+          <th>Order More</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        </tbody>
+        <% @pantries.each do |food| %>
+          <tr>
+            <td><%= food.item_name %></td>
+            <td><%= food.category %></td>
+            <td><%= food.qty %></td>
+            <td><%= food.date_of_purchase %></td>
+            <td><%= food.order_more %></td>
+            <td><%= link_to 'Edit', edit_pantry_path(food), class: 'btn btn-mini' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<br>
+</div>
+

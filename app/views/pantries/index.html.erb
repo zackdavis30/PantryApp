@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>What's in my Pantry</h1>
+
+<div class="media">
+  <div class="media-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Item name</th>
+            <th>Category</th>
+            <th>Qty</th>
+            <th>Date of purchase</th>
+            <th>Order more</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pantries.each do |pantry| %>
+            <tr>
+              <td><%= pantry.item_name %> </td>
+              <td><%= pantry.category %> </td>
+              <td><%= pantry.qty %> </td>
+              <td><%= pantry.date_of_purchase %> </td>
+              <td><%= pantry.order_more %> </td>
+              <td><%= link_to 'Show', pantry, class: 'btn btn-mini'%></td>
+              <td><%= link_to 'Edit', edit_pantry_path(pantry), class: 'btn btn-mini btn-success' %></td>
+              <td><%= link_to 'Delete', pantry, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+<br>
+</div>

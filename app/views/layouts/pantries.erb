@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KitchenCabinet</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<br>
+<div class="container">
+  <div class="nav nav-toggle">
+
+  <form class="form-inline md-form form-sm active-cyan-2 mt-2" <%= form_tag "/pantries/find_by_name_or_category" do %>
+    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" <%= text_field_tag :search_string %>
+    <%= submit_tag "search", class: 'btn btn-medium btn-info' %>
+  </form>
+    <% end %>
+
+    <%= link_to 'Add Item to Pantry', new_pantry_path, class: 'btn btn-mini' %> |
+    <%= link_to 'Create Category', new_category_path, class: 'btn btn-mini' %> |
+    <%= link_to 'Back', pantries_path, class: 'btn btn-mini' %>
+  </div>
+
+</div>
+  <%= yield %>
+
+</body>
+</html>
